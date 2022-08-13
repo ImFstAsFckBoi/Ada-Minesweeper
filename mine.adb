@@ -1,6 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
-with Interfaces.C;
-with GNAT.OS_Lib;
+with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 
 with Board; use Board;
 with Cell;  use Cell;
@@ -11,24 +10,10 @@ procedure Mine is
     Running: Boolean := True;
     FirstOpen: Boolean := True;
 
-    -- Would be much better if termios could be used
     procedure ClearCLI is
-        package C renames Interfaces.C;
-        use type C.int;
-
-        function system (command : C.char_array) return C.int
-        with Import, Convention => C;
-
-        ClearCmd : aliased constant C.char_array :=
-        C.To_C ("clear");
-
-        result : C.int;
+       
     begin
-        result := system (ClearCmd);
-        if result /= 0 then 
-            Put_Line("Something when wrong");
-            GNAT.OS_Lib.OS_Exit(1);
-        end if;
+        Put(ESC & "[2J");
     end ClearCLI;
 
 begin
