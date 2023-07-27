@@ -29,22 +29,21 @@ package body Cell is
 
 
     procedure Put (Item: in Cell_Type; Adj: in Natural) is
-        blue: String := ESC &"[0;34m";
-        green: String := ESC &"[0;32m";
-        red: String := ESC &"[0;31m";        
-        light_blue: String := ESC &"[1;34m";
-        light_red: String := ESC &"[1;31m";
-        cyan: String := ESC &"[0;36m";
-        dark_gray: String := ESC &"[1;30m";
-        light_gray: String := ESC &"[0;37m";
-        orange: String := ESC &"[0;33m";
-
-        nc: String := ESC & "[0;0m";
+        clear: String      := ESC & "[0;0m";
+        red: String        := ESC & "[0;31m";        
+        green: String      := ESC & "[0;32m";
+        orange: String     := ESC & "[0;33m";
+        blue: String       := ESC & "[0;34m";
+        cyan: String       := ESC & "[0;36m";
+        light_gray: String := ESC & "[0;37m";
+        dark_gray: String  := ESC & "[1;30m";
+        light_red: String  := ESC & "[1;31m";
+        light_blue: String := ESC & "[1;34m";
     begin
         if Item.IsFlagged then
             Put(orange);
-            Put("F");
-            Put(nc);
+            Put("⚐");
+            Put(clear);
         elsif not Item.IsOpen then
             Put(".");
         elsif Item.IsMine then
@@ -64,7 +63,7 @@ package body Cell is
                 when others => raise Constraint_Error;
             end case;
             Put(Adj, Width => 0);
-            Put(nc);
+            Put(clear);
 
         end if;
     end Put;
