@@ -1,4 +1,5 @@
 with Ada.Text_IO; use Ada.Text_IO;
+with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 with Ada.Integer_Text_IO; use Ada.Integer_Text_IO;
 with ada.numerics.discrete_random;
 
@@ -28,9 +29,22 @@ package body Cell is
 
 
     procedure Put (Item: in Cell_Type; Adj: in Natural) is
+        blue: String := ESC &"[0;34m";
+        green: String := ESC &"[0;32m";
+        red: String := ESC &"[0;31m";        
+        light_blue: String := ESC &"[1;34m";
+        light_red: String := ESC &"[1;31m";
+        cyan: String := ESC &"[0;36m";
+        dark_gray: String := ESC &"[1;30m";
+        light_gray: String := ESC &"[0;37m";
+        orange: String := ESC &"[0;33m";
+
+        nc: String := ESC & "[0;0m";
     begin
         if Item.IsFlagged then
+            Put(orange);
             Put("F");
+            Put(nc);
         elsif not Item.IsOpen then
             Put(".");
         elsif Item.IsMine then
@@ -38,7 +52,20 @@ package body Cell is
         elsif Adj = 0 then
             Put(" ");
         else
+            case Adj is
+                when 1 => Put(blue);
+                when 2 => Put(green);
+                when 3 => Put(red);
+                when 4 => Put(light_blue);
+                when 5 => Put(light_red);
+                when 6 => Put(cyan);
+                when 7 => Put(dark_gray);
+                when 8 => Put(light_blue);
+                when others => raise Constraint_Error;
+            end case;
             Put(Adj, Width => 0);
+            Put(nc);
+
         end if;
     end Put;
 
