@@ -35,7 +35,13 @@ begin
                 if not CellIsFlagged(BoardGetCellAtCursor(Board)) then
                     
                     if FirstOpen then
-                        BoardRandomize(Board);
+                        loop
+                            BoardRandomize(Board);
+                            if not CellIsMine(BoardGetCellAtCursor(Board)) then
+                                exit;
+                            end if;
+                        end loop;
+
                         FirstOpen := False;
                     end if;
 
