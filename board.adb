@@ -98,6 +98,17 @@ package body Board is
         end loop;
     end BoardCloseAllCells;
 
+    procedure BoardUnflagAllCells (Board: in out Board_Type) is
+    begin
+         for Y in Board.Field'Range(2) loop
+            for X in Board.Field'Range(1) loop
+                if CellIsFlagged(Board.Field(X, Y)) then
+                    CellFlag(Board.Field(X, Y));
+                end if;
+            end loop;
+        end loop;
+    end BoardUnflagAllCells;
+
 
     procedure BoardPlaceFlag(Board: in out Board_Type) is
     begin

@@ -56,7 +56,9 @@ begin
                                 when 'q' => 
                                     Running := False;
                                     exit;
-                                when 'r' => 
+                                when 'r' =>
+
+                                    BoardUnflagAllCells(Board);
                                     BoardCloseAllCells(Board);
                                     FirstOpen := True;
                                     exit;

@@ -12,6 +12,7 @@ package Board is
     procedure BoardMoveCursor      (Board: in out Board_Type; Direction: in Directions_Type; Increment: in Integer := 1);
     procedure BoardCloseAllCells   (Board: in out Board_Type);
     procedure BoardOpenAllCells    (Board: in out Board_Type);
+    procedure BoardUnflagAllCells  (Board: in out Board_Type);
     procedure BoardPlaceFlag       (Board: in out Board_Type);
     procedure BoardOpenAtCursor    (Board: in out Board_Type);
 private
