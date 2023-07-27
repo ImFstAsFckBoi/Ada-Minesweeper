@@ -2,3 +2,5 @@
 *.o
 
 mine
+
+.venv
