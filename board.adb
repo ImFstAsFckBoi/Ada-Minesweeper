@@ -164,4 +164,18 @@ package body Board is
             CellOpen(Board.Field(Board.Cursor.X ,Board.Cursor.Y));
         end if;
     end BoardOpenAtCursor;
+
+    function BoardCountMines (Board: in out Board_Type) return Natural is
+        result: Natural := 0;
+    begin
+        for Y in Board.Field'Range(2) loop
+            for X in Board.Field'Range(1) loop
+                if CellIsMine(Board.Field(X, Y)) then
+                    result := result + 1;
+                end if;
+            end loop;
+        end loop;
+
+        return result;
+    end BoardCountMines;
 end Board;

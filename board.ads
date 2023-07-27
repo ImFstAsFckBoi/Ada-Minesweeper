@@ -15,6 +15,7 @@ package Board is
     procedure BoardUnflagAllCells  (Board: in out Board_Type);
     procedure BoardPlaceFlag       (Board: in out Board_Type);
     procedure BoardOpenAtCursor    (Board: in out Board_Type);
+    function BoardCountMines       (Board: in out Board_Type) return Natural;
 private
     type AnyBoolArray is array (Integer range <>, Integer range <>) of Boolean;
 
