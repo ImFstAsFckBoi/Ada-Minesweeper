@@ -5,7 +5,7 @@ with Board; use Board;
 with Cell;  use Cell;
 
 procedure Mine is
-    Board: Board_Type(14, 16);
+    Board: Board_Type($BOARD_WIDTH, $BOARD_HEIGHT);
     Input: Character;
     Running: Boolean := True;
     FirstOpen: Boolean := True;
@@ -16,10 +16,20 @@ procedure Mine is
         Put(ESC & "[2J");
     end ClearCLI;
 
-begin
+    CURSORHOME: String    := ESC & "[H";
+    CLEARLINE: String     := ESC & "[2K";
+    CLEARSCREEN: String   := ESC & "[2J";
+    CLEAREOS: String      := ESC & "[0J";
+    SAVECURSOR: String    := ESC & "7";
+    RESTORECURSOR: String := ESC & "8";
+    SETAUTOWRAP: String   := ESC & "[?7h";
+    HIDECURSOR: String    := ESC & "[?25l";
+    SHOWCURSOR: String    := ESC & "[?25h";
 
+begin
+    Put(SAVECURSOR);
     while Running loop
-        ClearCLI;
+        Put(RESTORECURSOR);
         Put(Board);
 
         Get_Immediate(Input);
@@ -38,7 +48,10 @@ begin
                         Remaning_Mines := Remaning_Mines - 1;
                     end if;
                 end if;
-                BoardPlaceFlag(Board);
+
+                if not CellIsOpen(BoardGetCellAtCursor(Board)) then
+                    BoardPlaceFlag(Board);
+                end if;
             when ' ' =>
                 if not CellIsFlagged(BoardGetCellAtCursor(Board)) then
                     
@@ -56,11 +69,10 @@ begin
                     end if;
 
                     BoardOpenAtCursor(Board);
-                    
 
                     if CellIsMine(BoardGetCellAtCursor(Board)) then
                         BoardOpenAllCells(Board);
-                        ClearCLI;
+                        Put(RESTORECURSOR);
 
                         Put(Board);
                         Put_Line("YOU LOST!  Press (r) to RESTART or (q) to QUIT");
@@ -73,7 +85,8 @@ begin
                                     Running := False;
                                     exit;
                                 when 'r' =>
-
+                                    Put(RESTORECURSOR);
+                                    Put(CLEAREOS);
                                     BoardUnflagAllCells(Board);
                                     BoardCloseAllCells(Board);
                                     FirstOpen := True;
@@ -89,7 +102,8 @@ begin
   
         if Remaning_Mines = 0 then
             BoardOpenAllCells(Board);
-            ClearCLI;
+            Put(RESTORECURSOR);
+            Put(RESTORECURSOR);
             Put(Board);
             Put_Line("YOU WON!  Press (r) to RESTART or (q) to QUIT");
             loop
@@ -100,7 +114,7 @@ begin
                         Running := False;
                         exit;
                     when 'r' =>
-
+                        Put(CLEAREOS);
                         BoardUnflagAllCells(Board);
                         BoardCloseAllCells(Board);
                         FirstOpen := True;

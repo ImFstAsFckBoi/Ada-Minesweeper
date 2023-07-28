@@ -2,6 +2,9 @@
 *.o
 mine
 
+mine.adb
+board.adb
+
 .venv
 .mypy_cache
 __pycache__/

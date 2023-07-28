@@ -4,9 +4,9 @@
 
 ## Compile and Run (Linux)
 
-```console
+```shell
 sudo apt install gnat
-gnatmake mine
+make -C src
 ./mine
 ```
 

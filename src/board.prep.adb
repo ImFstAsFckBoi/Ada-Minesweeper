@@ -14,7 +14,7 @@ package body Board is
                     Adj: Natural;
                 begin
                     if Item.Cursor.X = X and Item.Cursor.Y = Y then
-                        Put("(");
+                        Put($CURSOR_LEFT);
                     else
                         Put(" ");
                     end if;
@@ -23,7 +23,7 @@ package body Board is
                     Put(Item.Field(X, Y), Adj);
 
                     if Item.Cursor.X = X and Item.Cursor.Y = Y then
-                        Put(")");
+                        Put($CURSOR_RIGHT);
                     else
                         Put(" ");
                     end if;
