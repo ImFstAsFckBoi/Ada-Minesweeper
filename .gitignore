@@ -4,7 +4,7 @@ mine
 
 mine.adb
 board.adb
-
+cell.adb
 .venv
 .mypy_cache
 __pycache__/

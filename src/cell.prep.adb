@@ -42,14 +42,14 @@ package body Cell is
     begin
         if Item.IsFlagged then
             Put(orange);
-            Put("⚐");
+            Put($FLAG_SYMBOL);
             Put(clear);
         elsif not Item.IsOpen then
-            Put(".");
+            Put($UNKNOWN_SYMBOL);
         elsif Item.IsMine then
-            Put("*");
+            Put($MINE_SYMBOL);
         elsif Adj = 0 then
-            Put(" ");
+            Put($ZERO_COUNT_SYMBOL);
         else
             case Adj is
                 when 1 => Put(blue);

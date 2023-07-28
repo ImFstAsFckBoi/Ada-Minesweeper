@@ -15,7 +15,7 @@ mine: ${OBJS}
 %.o: %.adb
 	gnat compile $<
 
-%.adb: %.prep.adb
+%.adb: %.prep.adb prep.def
 	gnatprep $< $@ prep.def
 
 .PHONY: clean
