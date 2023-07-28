@@ -1,7 +1,12 @@
 OBJS = cell.o field.o board.o mine.o
 
+
+
 default: mine
-	cp mine ../
+	cp -f mine ../
+
+install: mine
+	cp -f mine ~/.local/bin/
 
 mine: ${OBJS}
 	gnatbind mine
@@ -10,8 +15,7 @@ mine: ${OBJS}
 %.o: %.adb
 	gnat compile $<
 
-
-%.adb: %.unprepped.adb
+%.adb: %.prep.adb
 	gnatprep $< $@ prep.def
 
 .PHONY: clean
