@@ -1,9 +1,9 @@
-# CLI Minesweeper written in Ada 95
+# CLI Minesweeper written in Ada
 
 ![Image of program](./example.png)
 
 ## Compile and Run (Linux)
-To compile you'll need the gnat compiler and toolchain, as well as make.
+To compile you'll need the gnat compiler and toolchain, as well as make. The oldest compatible language version is Ada 2012.
 ```shell
 sudo apt install gnat
 make -C src
