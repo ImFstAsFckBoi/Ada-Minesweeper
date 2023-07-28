@@ -1,11 +1,13 @@
 # CLI Minesweeper written in Ada 95
 
+![Image of program](./example.png)
+
 ## Compile and Run (Linux)
 
 ```console
-$ sudo apt install gnat
-$ gnatmake mine
-$ ./mine
+sudo apt install gnat
+gnatmake mine
+./mine
 ```
 
 ## Controls
