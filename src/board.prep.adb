@@ -3,12 +3,15 @@ with Ada.Integer_Text_IO; 	use Ada.Integer_Text_IO;
 
 with Cell; use Cell;
 with Field; use Field;
+with Escape; use Escape;
+
 package body Board is
 
 
     procedure Put (Item: in Board_Type) is
     begin
         for Y in Item.Field'Range(2) loop
+            Put(CLEARLINE);
             for X in Item.Field'Range(1) loop
                 declare
                     Adj: Natural;

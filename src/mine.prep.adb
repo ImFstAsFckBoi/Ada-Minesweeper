@@ -3,29 +3,18 @@ with Ada.Characters.Latin_1; use Ada.Characters.Latin_1;
 
 with Board; use Board;
 with Cell;  use Cell;
-
+with Escape; use Escape;
 procedure Mine is
     Board: Board_Type($BOARD_WIDTH, $BOARD_HEIGHT);
     Input: Character;
     Running: Boolean := True;
     FirstOpen: Boolean := True;
     Remaning_Mines: Natural := 1;
-    procedure ClearCLI is
-       
+
+    procedure ClearCLI is   
     begin
         Put(ESC & "[2J");
     end ClearCLI;
-
-    CURSORHOME: String    := ESC & "[H";
-    CLEARLINE: String     := ESC & "[2K";
-    CLEARSCREEN: String   := ESC & "[2J";
-    CLEAREOS: String      := ESC & "[0J";
-    SAVECURSOR: String    := ESC & "7";
-    RESTORECURSOR: String := ESC & "8";
-    SETAUTOWRAP: String   := ESC & "[?7h";
-    HIDECURSOR: String    := ESC & "[?25l";
-    SHOWCURSOR: String    := ESC & "[?25h";
-
 begin
     Put(SAVECURSOR);
     while Running loop
@@ -33,6 +22,16 @@ begin
         Put(Board);
 
         Get_Immediate(Input);
+        if Input = ESC then
+            
+            case ReadEscapeSequence is
+                when ARROW_UP    => Input := 'w';
+                when ARROW_DOWN  => Input := 's';
+                when ARROW_RIGHT => Input := 'd';
+                when ARROW_LEFT  => Input := 'a';
+                when others => null;
+            end case;
+        end if;
 
         case Input is
             when 'q' => exit;

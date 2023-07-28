@@ -1,4 +1,4 @@
-OBJS = cell.o field.o board.o mine.o
+OBJS = cell.o field.o board.o escape.o mine.o
 
 
 
@@ -11,6 +11,10 @@ install: mine
 mine: ${OBJS}
 	gnatbind mine
 	gnatlink mine
+
+%.o: %.adb %.ads
+	echo "Boing $<"
+	gnat compile $<
 
 %.o: %.adb
 	gnat compile $<

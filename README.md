@@ -27,7 +27,11 @@ CURSOR_RIGHT := "{"
 ## Controls
 <table>
     <tr>
-        <th><kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, <kbd>d</kbd></th>
+        <th>
+            <kbd>w</kbd>, <kbd>a</kbd>, <kbd>s</kbd>, <kbd>d</kbd>
+            or
+            <kbd>⬆️</kbd>, <kbd>⬇️</kbd>, <kbd>⬅️</kbd>, <kbd>➡️</kbd>
+        </th>
         <th>Move cursor</th>
     </tr>
      <tr>
