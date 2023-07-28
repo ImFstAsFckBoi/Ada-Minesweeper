@@ -9,13 +9,13 @@ sudo apt install gnat
 make -C src
 ./mine
 ```
-Optionally you can also install to make it accessible in any directory.
+Optionally you can also install it to make it accessible in any directory.
 ```shell
 make install -C src
 ```
 
 ## Customize!
-The file [prep.def](src/prep.def) can be used to customize some of parameters the program is compiled with. After editing you must rerun `make -C src` to se the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
+The file [prep.def](src/prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must rerun `make -C src` to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
 ```shell
 VARIABLE := VALUE
 BOARD_WIDTH := 10
