@@ -13,7 +13,6 @@ mine: ${OBJS}
 	gnatlink mine
 
 %.o: %.adb %.ads
-	echo "Boing $<"
 	gnat compile $<
 
 %.o: %.adb

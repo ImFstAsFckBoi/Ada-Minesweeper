@@ -6,12 +6,12 @@
 To compile you'll need the gnat compiler and toolchain, as well as make. The oldest compatible language version is Ada 2012.
 ```shell
 sudo apt install gnat
-make -C src
+make -j -C src
 ./mine
 ```
 Optionally you can also install it to make it accessible in any directory.
 ```shell
-make install -C src
+make install -j -C src
 ```
 
 ## Customize!
