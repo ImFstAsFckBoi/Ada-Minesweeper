@@ -6,7 +6,7 @@ CURSOR_RIGHT := ")"
 
 FLAG_SYMBOL := "⚐"
 UNKNOWN_SYMBOL := "."
--- Because Ada is a dumb laguage you cannot for some
+-- Because Ada is a dumb language you cannot for some
 -- reason have "*" in a def file so to combat this you
 -- must add a zero-width character before the * (​)
 -- "​*"
