@@ -1,0 +1,28 @@
+# Maintainer: ImFstAsFckBoi
+
+pkgname="ada-minesweeper"
+_repo="Ada-Minesweeper"
+pkgver=1
+pkgrel=1
+pkgdesc="Minesweeper for the terminal written in Ada"
+arch=(x86_64)
+license=('MIT')
+url="https://github.com/ImFstAsFckBoi/Ada-Minesweeper"
+makedepends=(gcc-ada git)
+source=("git+$url")
+md5sums=('SKIP')
+
+build() {
+    cd "$srcdir/$_repo/src"
+    make
+}
+
+check() {
+    test -f "$srcdir/$_repo/src/mine"
+}
+
+package() {
+    mkdir -p "$pkgdir/usr/bin"
+    install -p -m755 "$srcdir/$_repo/src/mine" "$pkgdir/usr/bin"
+    install -Dm644 "$srcdir/$_repo/LICENSE" "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
