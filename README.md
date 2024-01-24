@@ -6,11 +6,29 @@
 To compile you'll need the gnat compiler and toolchain, as well as make. The oldest compatible language version is Ada 2012.
 ```shell
 sudo apt install gnat
+git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
+cd Ada-Minesweeper
 make -j -C src
 ./mine
 ```
-Optionally you can also install it to make it accessible in any directory.
+
+## Install
+
+### Arch / pacman
+Download automatically
 ```shell
+curl -fsSL -o PKGBUILD https://raw.githubusercontent.com/ImFstAsFckBoi/Ada-Minesweeper/master/PKGBUILD-GIT && makepkg -si
+```
+Manually
+```shell
+git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
+cd Ada-Minesweeper
+makepkg -si
+```
+### Other Linux
+```shell
+git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
+cd Ada-Minesweeper
 make install -j -C src
 ```
 
