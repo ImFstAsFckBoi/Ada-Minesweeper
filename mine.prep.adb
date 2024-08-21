@@ -10,12 +10,12 @@ procedure Mine is
     Running: Boolean := True;
     FirstOpen: Boolean := True;
     Remaning_Mines: Natural := 1;
-
     procedure ClearCLI is   
     begin
         Put(ESC & "[2J");
     end ClearCLI;
 begin
+    Put(ESC & "[?25l");
     Put(SAVECURSOR);
     while Running loop
         Put(RESTORECURSOR);
@@ -123,5 +123,6 @@ begin
             end loop;
         end if;
     end loop;
+    Put(ESC & "[?25h");
 end Mine;
 

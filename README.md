@@ -8,7 +8,7 @@ To compile you'll need the gnat compiler and toolchain, as well as make. The old
 sudo apt install gnat
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
-make -j -C src
+make
 ./mine
 ```
 
@@ -29,11 +29,11 @@ makepkg -si
 ```shell
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
-make install -j -C src
+make install
 ```
 
 ## Customize!
-The file [prep.def](src/prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must rerun `make -C src` to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
+The file [prep.def](src/prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must rerun `make` to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
 ```shell
 VARIABLE := VALUE
 BOARD_WIDTH := 10

@@ -13,7 +13,7 @@ source=("git+$url")
 md5sums=('SKIP')
 
 build() {
-    cd "$srcdir/$_repo/src"
+    cd "$srcdir/$_repo"
     make
 }
 

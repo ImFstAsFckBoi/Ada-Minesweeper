@@ -1,7 +1,5 @@
 OBJS = cell.o field.o board.o escape.o mine.o
 
-
-
 default: mine
 	cp -f mine ../
 
@@ -12,7 +10,7 @@ mine: ${OBJS}
 	gnatbind mine
 	gnatlink mine
 
-%.o: %.adb %.ads
+src/%.o: %.adb %.ads
 	gnat compile $<
 
 %.o: %.adb

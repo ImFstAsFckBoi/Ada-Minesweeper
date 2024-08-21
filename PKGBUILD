@@ -12,7 +12,6 @@ source=()
 md5sums=('SKIP')
 
 build() {
-    cd "$srcdir"
     make
 }
 
