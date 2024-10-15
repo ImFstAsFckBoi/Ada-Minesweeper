@@ -15,11 +15,6 @@ make
 ## Install
 
 ### Arch / pacman
-Download automatically
-```shell
-curl -fsSL -o PKGBUILD https://raw.githubusercontent.com/ImFstAsFckBoi/Ada-Minesweeper/master/PKGBUILD-GIT && makepkg -si
-```
-Manually
 ```shell
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
@@ -29,18 +24,16 @@ makepkg -si
 ```shell
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
-make install
+make install # installs to .local/bin
 ```
 
 ## Customize!
-The file [prep.def](src/prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must rerun `make` to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
+The file [prep.def](src/prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must recompile to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
 ```shell
 VARIABLE := VALUE
 BOARD_WIDTH := 10
 CURSOR_RIGHT := "{"
 ```
-
-
 
 ## Controls
 <table>
