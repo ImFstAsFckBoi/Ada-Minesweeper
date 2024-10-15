@@ -1,41 +1,38 @@
-# CLI Minesweeper written in Ada
-
+# 🚩 Terminal Minesweeper - Written in Ada
 ![Image of program](./example.png)
 
-## Compile and Run (Linux)
-To compile you'll need the gnat compiler and toolchain, as well as make. The oldest compatible language version is Ada 2012.
+## 🛠️ Compile and Run (Linux)
+
+To compile you'll need the gnat compiler and toolchain, as well as make. The oldest known compatible language version is Ada 2012.
 ```shell
-sudo apt install gnat
+# install gnat for your system
+# sudo pacman -S gcc-ada
+# sudo apt install gnat
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
 make
 ./mine
 ```
 
-## Install
+## 📥 Install
+Install to the system, to be accessible in any directory.
 
-### Arch / pacman
+### 😎 Arch Linux / pacman
+There is a `PKGBUILD` script for Arch based distros.
 ```shell
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
-makepkg -si
+makepkg -si # installs to /usr/local/bin
 ```
-### Other Linux
+### 🤓 Other Linux
+For other distros you will have to compile and install manually.
 ```shell
 git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
 cd Ada-Minesweeper
-make install # installs to .local/bin
+make install # installs to ~/.local/bin
 ```
 
-## Customize!
-The file [prep.def](src/prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must recompile to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
-```shell
-VARIABLE := VALUE
-BOARD_WIDTH := 10
-CURSOR_RIGHT := "{"
-```
-
-## Controls
+## 🕹️ Controls
 <table>
     <tr>
         <th>
@@ -58,3 +55,10 @@ CURSOR_RIGHT := "{"
         <th>Quit</th>
     </tr>
 </table>
+
+## 🎨 Customize!
+The file [prep.def](prep.def) can be used to customize some of the parameters the program is compiled with. After editing you must recompile to see the changes. You can change cursor style, board size, etc. The file follows standard Ada syntax. Example:
+```shell
+BOARD_WIDTH := 10
+CURSOR_RIGHT := "{"
+```
