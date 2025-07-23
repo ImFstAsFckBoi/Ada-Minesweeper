@@ -20,8 +20,7 @@ Install to the system, to be accessible in any directory.
 ### 😎 Arch Linux / pacman
 There is a `PKGBUILD` script for Arch based distros.
 ```shell
-git clone https://github.com/ImFstAsFckBoi/Ada-Minesweeper
-cd Ada-Minesweeper
+curl -LO https://raw.githubusercontent.com/ImFstAsFckBoi/Ada-Minesweeper/refs/heads/master/PKGBUILD
 makepkg -si # installs to /usr/local/bin
 ```
 ### 🤓 Other Linux
